@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* To position the ::after pseudo-element */
+  }
+  
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity */
+    z-index: -1; /* Behind the content */
+  }
+  
+  .weather-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px; /* Fixed width for consistency */
+    transition: transform 0.2s, background-color 0.3s ease; /* Smooth scaling effect and background color transition */
+    opacity: 0.9; /* Reduce opacity slightly */
+  }
+  
+  .weather-container:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    opacity: 1; /* Restore full opacity on hover */
+  }
+  
+  input {
+    padding: 12px;
+    font-size: 16px;
+    margin: 5px 0;
+    border: 1px solid #76c7c0; /* Border color matching the background */
+    border-radius: 6px;
+    width: calc(100% - 26px); /* Full width minus padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #2c3e50; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.5); /* Focus shadow */
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #76c7c0; /* Button background color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:hover {
+    background-color: #77b8b2; /* New hover background color */
+    transform: translateY(-2px); /* Slightly lift the button on hover */
+  }
+  
+  
+  #weatherResult {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+    animation: fadeIn 0.5s;
+  }
+  
+  .weather-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .weather-card:hover {
+    transform: translateY(-5px); /* Slightly lift the card on hover */
+  }
+  
+  .loading {
+    display: none; /* Hidden initially */
+    font-size: 18px;
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .weather-container {
+      width: 90%; /* Responsive width for smaller screens */
+    }
+  }
+  
